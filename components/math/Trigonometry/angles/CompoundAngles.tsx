@@ -7,7 +7,7 @@ export default function CompoundAngles() {
         <p className="underline font-robotoMono text-base md:text-xl font-semibold">
           Compound Angles
         </p>
-        <div className="flex flex-col gap-4 mt-4 font-lora text-[12px] md:text-[16px]">
+        <div className="flex flex-col gap-4 mt-4 font-lora text-[11px] md:text-[16px]">
           <MathJax>
             {"i) \\(\\sin(A + B) = \\sin A \\cos B + \\cos A \\sin B\\)"}
           </MathJax>

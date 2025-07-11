@@ -18,8 +18,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Search } from "./Search";
 
-const MENU_ITEMS = [
+export const MENU_ITEMS = [
   {
     title: "Trigonometry",
     href: "/trigonometry",
@@ -249,6 +250,9 @@ export function MobileNav() {
           <SheetTitle>Navigation</SheetTitle>
           <SheetDescription>Browse math topics and concepts</SheetDescription>
         </SheetHeader>
+        <div className="mt-4 px-2">
+          <Search onSelect={() => setOpen(false)} />
+        </div>
         <div className="mt-6 space-y-4 overflow-y-auto flex-1 pr-2 ml-2">
           {MENU_ITEMS.map((menu) => (
             <div key={menu.title} className="space-y-2">
