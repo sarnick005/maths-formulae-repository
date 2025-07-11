@@ -30,10 +30,10 @@ const MENU_ITEMS = [
         description: "Basic trigonometric functions and their applications",
       },
       {
-        title: "Identities",
-        href: "/trigonometry/identities",
+        title: "Angles",
+        href: "/trigonometry/angles",
         description:
-          "Pythagorean, angle sum, and other trigonometric identities",
+          "Associated angles, Compound angles, Sum and products, multiple angles and submultiple angles",
       },
       {
         title: "Graphs",
@@ -243,16 +243,16 @@ export function MobileNav() {
       </SheetTrigger>
       <SheetContent
         side="left"
-        className="w-[300px] sm:w-[400px] flex flex-col"
+        className="w-[300px] sm:w-[400px] flex flex-col "
       >
         <SheetHeader className="flex-shrink-0">
           <SheetTitle>Navigation</SheetTitle>
           <SheetDescription>Browse math topics and concepts</SheetDescription>
         </SheetHeader>
-        <div className="mt-6 space-y-4 overflow-y-auto flex-1 pr-2">
+        <div className="mt-6 space-y-4 overflow-y-auto flex-1 pr-2 ml-2">
           {MENU_ITEMS.map((menu) => (
             <div key={menu.title} className="space-y-2">
-              <h3 className="font-semibold text-black border-b pb-2">
+              <h3 className="font-semibold text-black border-b pb-2 text-center">
                 {menu.title}
               </h3>
               <div className="space-y-1 pl-4">

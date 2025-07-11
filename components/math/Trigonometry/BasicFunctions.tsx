@@ -1,33 +1,53 @@
-"use client";
-
 import { MathJax } from "better-react-mathjax";
 
 export default function BasicFunctions() {
   return (
-    <div className="flex flex-col font-lora text-lg md:text-xl md:flex-row md:gap-16">
+    <div className="flex flex-col font-lora text-base md:text-lg md:flex-row md:gap-16">
+      {/* Basic Functions Section */}
       <div className="flex flex-col gap-4">
-        <p className="underline font-robotoMono">Basic Functions</p>
-        <MathJax>i) {"sinθ = \\(\\frac{AB}{AC}\\)"}</MathJax>
-        <MathJax>ii) {"cosθ = \\(\\frac{BC}{AC}\\)"}</MathJax>
+        <p className="underline font-robotoMono text-lg font-semibold">
+          Basic Functions
+        </p>
+        <MathJax>{"\\( \\text{i) } \\sin\\theta = \\frac{AB}{AC} \\)"}</MathJax>
         <MathJax>
-          iii) {"tanθ = \\(\\frac{\\sinθ}{\\cosθ}\\) = \\(\\frac{AB}{BC}\\)"}
+          {"\\( \\text{ii) } \\cos\\theta = \\frac{BC}{AC} \\)"}
         </MathJax>
         <MathJax>
-          iv) {"cotθ = \\(\\frac{1}{\\tanθ}\\) = \\(\\frac{BC}{AB}\\)"}
+          {
+            "\\( \\text{iii) } \\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta} = \\frac{AB}{BC} \\)"
+          }
         </MathJax>
         <MathJax>
-          v) {"cosecθ = \\(\\frac{1}{\\sinθ}\\) = \\(\\frac{AC}{AB}\\)"}
+          {
+            "\\( \\text{iv) } \\cot\\theta = \\frac{1}{\\tan\\theta} = \\frac{BC}{AB} \\)"
+          }
         </MathJax>
         <MathJax>
-          vi) {"secθ = \\(\\frac{1}{\\cosθ}\\) = \\(\\frac{AC}{BC}\\)"}
+          {
+            "\\( \\text{v) } \\csc\\theta = \\frac{1}{\\sin\\theta} = \\frac{AC}{AB} \\)"
+          }
+        </MathJax>
+        <MathJax>
+          {
+            "\\( \\text{vi) } \\sec\\theta = \\frac{1}{\\cos\\theta} = \\frac{AC}{BC} \\)"
+          }
         </MathJax>
       </div>
 
-      <div className="mt-4 md:mt-0 flex flex-col gap-2 font-lora">
-        <p className="underline font-robotoMono">Basic Formulae</p>
-        <MathJax>i) {"\\( \\ sin^2\\theta + \\ cos^2\\theta = 1 \\)"}</MathJax>
-        <MathJax>ii) {"\\( \\ sec^2\\theta - \\ tan^2\\theta = 1 \\)"}</MathJax>
-        <MathJax>iii) {"\\( \\ cosec^2\\theta - \\ cot^2\\theta = 1 \\)"}</MathJax>
+      {/* Basic Identities Section */}
+      <div className="mt-6 md:mt-0 flex flex-col gap-4">
+        <p className="underline font-robotoMono text-lg font-semibold">
+          Basic Formulae
+        </p>
+        <MathJax>
+          {"\\( \\text{i) } \\sin^2\\theta + \\cos^2\\theta = 1 \\)"}
+        </MathJax>
+        <MathJax>
+          {"\\( \\text{ii) } \\sec^2\\theta - \\tan^2\\theta = 1 \\)"}
+        </MathJax>
+        <MathJax>
+          {"\\( \\text{iii) } \\ cosec^2\\theta - \\cot^2\\theta = 1 \\)"}
+        </MathJax>
       </div>
     </div>
   );
