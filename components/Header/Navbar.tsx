@@ -293,7 +293,7 @@ export function DesktopNav() {
                 {menu.title}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px] p-4">
+                <ul className="grid w-[300px] gap-2 md:w-[400px] md:grid-cols-2 lg:w-[500px] p-4 max-w-[90vw]">
                   {menu.items.map((item) => (
                     <ListItem
                       key={item.title}
