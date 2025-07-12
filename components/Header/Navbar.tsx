@@ -284,29 +284,34 @@ export function MobileNav() {
 
 export function DesktopNav() {
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        {MENU_ITEMS.map((menu) => (
-          <NavigationMenuItem key={menu.title}>
-            <NavigationMenuTrigger className="text-black hover:bg-gray-100 focus:bg-gray-100 data-[state=open]:bg-gray-100 px-4 py-2 font-medium bg-white">
-              {menu.title}
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px] p-4">
-                {menu.items.map((item) => (
-                  <ListItem
-                    key={item.title}
-                    title={item.title}
-                    href={item.href}
-                  >
-                    {item.description}
-                  </ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        ))}
-      </NavigationMenuList>
-    </NavigationMenu>
+    <div className="flex items-center gap-4">
+      <NavigationMenu>
+        <NavigationMenuList>
+          {MENU_ITEMS.map((menu) => (
+            <NavigationMenuItem key={menu.title}>
+              <NavigationMenuTrigger className="text-black hover:bg-gray-100 focus:bg-gray-100 data-[state=open]:bg-gray-100 px-4 py-2 font-medium bg-white">
+                {menu.title}
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px] p-4">
+                  {menu.items.map((item) => (
+                    <ListItem
+                      key={item.title}
+                      title={item.title}
+                      href={item.href}
+                    >
+                      {item.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          ))}
+        </NavigationMenuList>
+      </NavigationMenu>
+      <div className="hidden md:flex items-center">
+        <Search />
+      </div>
+    </div>
   );
 }
