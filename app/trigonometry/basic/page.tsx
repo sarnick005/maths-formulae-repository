@@ -1,14 +1,15 @@
 "use client";
+import { SkeletonCard } from "@/components/SkeletonCard";
 import dynamic from "next/dynamic";
 
 const MobileBasics = dynamic(
   () => import("@/components/math/Trigonometry/MobileBasics"),
-  { ssr: false }
+  { ssr: false, loading: () => <SkeletonCard /> }
 );
 
 const DesktopBasics = dynamic(
   () => import("@/components/math/Trigonometry/DesktopBasics"),
-  { ssr: false }
+  { ssr: false, loading: () => <SkeletonCard /> }
 );
 
 export default function BasicsPage() {

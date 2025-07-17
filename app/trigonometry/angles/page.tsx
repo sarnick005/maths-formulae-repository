@@ -1,16 +1,25 @@
 "use client";
 import dynamic from "next/dynamic";
+import { SkeletonCard } from "@/components/SkeletonCard";
 
 const CompoundAngles = dynamic(
   () => import("@/components/math/Trigonometry/angles/CompoundAngles"),
-  { ssr: false }
+  { ssr: false, loading: () => <SkeletonCard /> }
 );
 const SumAndProducts = dynamic(
   () => import("@/components/math/Trigonometry/angles/SumAndProducts"),
-  { ssr: false }
+  { ssr: false, loading: () => <SkeletonCard /> }
+);
+const MultipleAngle = dynamic(
+  () => import("@/components/math/Trigonometry/angles/MultipleAngle"),
+  { ssr: false, loading: () => <SkeletonCard /> }
+);
+const SubMultipleAngle = dynamic(
+  () => import("@/components/math/Trigonometry/angles/SubmultipleAngles"),
+  { ssr: false, loading: () => <SkeletonCard /> }
 );
 
-export default function BasicsPage() {
+export default function Page() {
   return (
     <div className="min-h-screen bg-background px-4 md:px-12 py-6 md:py-10 text-foreground font-lora">
       <div className="max-w-7xl mx-auto">
@@ -25,6 +34,12 @@ export default function BasicsPage() {
 
           <section className="bg-card border border-border rounded-lg p-4 md:p-6 shadow-sm h-fit">
             <SumAndProducts />
+          </section>
+          <section className="bg-card border border-border rounded-lg p-4 md:p-6 shadow-sm h-fit">
+            <MultipleAngle />
+          </section>
+          <section className="bg-card border border-border rounded-lg p-4 md:p-6 shadow-sm h-fit">
+            <SubMultipleAngle />
           </section>
         </div>
       </div>
