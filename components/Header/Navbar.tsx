@@ -44,7 +44,7 @@ export const MENU_ITEMS = [
       {
         title: "Properties of Triangle",
         href: "/trigonometry/properties-of-triangle",
-        description: "Fundamental Properties of Triangle",
+        description: "The Fundamental Properties of a Triangle",
       },
     ],
   },
@@ -52,6 +52,11 @@ export const MENU_ITEMS = [
     title: "Calculus",
     href: "/calculus",
     items: [
+      {
+        title: "Limits",
+        href: "/calculus/limits",
+        description: "Understanding limits and continuity",
+      },
       {
         title: "Derivatives",
         href: "/calculus/derivatives",
@@ -62,11 +67,7 @@ export const MENU_ITEMS = [
         href: "/calculus/integrals",
         description: "Integration techniques and applications",
       },
-      {
-        title: "Limits",
-        href: "/calculus/limits",
-        description: "Understanding limits and continuity",
-      },
+
       {
         title: "Applications",
         href: "/calculus/applications",
