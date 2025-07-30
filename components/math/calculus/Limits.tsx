@@ -107,6 +107,7 @@ export default function Limits() {
             </div>
           </div>
         </section>
+        {/* Section 4 : Important Limits*/}
         <section className="p-2 hover:bg-muted/50 rounded transition-colors flex flex-col gap-2">
           <p className="font-semibold  font-robotoMono">
             <span>3. </span>
@@ -156,6 +157,31 @@ export default function Limits() {
               <MathJax inline>
                 {
                   "\\[ (vii) \\lim_{x \\to 0} \\frac{a^x -1}{x}  = \\log_e a \\:\\text{(a > 0)}\\]"
+                }
+              </MathJax>
+            </div>
+          </div>
+        </section>
+        {/* Section 5 : L'Hopital*/}
+        <section className="p-2 hover:bg-muted/50 rounded transition-colors flex flex-col gap-2">
+          <p className="font-semibold font-robotoMono">
+            <span>4. </span>
+            <span className="underline">L&apos;Hôpital&apos;s Rule</span>
+          </p>
+
+          <div className="flex flex-col gap-2 ml-4">
+            <p>
+              If the limit of a function results in an indeterminate form like{" "}
+              <MathJax inline>{"\\( \\frac{0}{0} \\)"}</MathJax> or{" "}
+              <MathJax inline>{"\\( \\frac{\\infty}{\\infty} \\)"}</MathJax>,{" "}
+              <b>and if the limit of the derivatives exists</b>, then
+              L’Hôpital’s Rule can be applied:
+            </p>
+
+            <div className="text-left w-fit">
+              <MathJax>
+                {
+                  "\\[ \\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\lim_{x \\to a} \\frac{f'(x)}{g'(x)} \\]"
                 }
               </MathJax>
             </div>
