@@ -1,8 +1,8 @@
 "use client";
 
+import { MENU_ITEMS } from "@/utils/MenuItems";
 import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
-import {MENU_ITEMS} from "./Navbar"
 
 
 type SearchProps = {
@@ -14,11 +14,20 @@ export function Search({ onSelect }: SearchProps) {
   const [searchValue, setSearchValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
-  const allItems = MENU_ITEMS.flatMap((category) =>
-    category.items.map((item) => ({
-      ...item,
-      category: category.title,
-    }))
+  const allItems = MENU_ITEMS.reduce(
+    (acc, category) => {
+      const categoryItems = category.items.map((item) => ({
+        ...item,
+        category: category.title,
+      }));
+      return [...acc, ...categoryItems];
+    },
+    [] as Array<{
+      title: string;
+      href: string;
+      description: string;
+      category: string;
+    }>
   );
 
   const filteredItems = searchValue
@@ -36,6 +45,7 @@ export function Search({ onSelect }: SearchProps) {
     setSearchValue("");
     onSelect?.();
   };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -51,7 +61,7 @@ export function Search({ onSelect }: SearchProps) {
   }, []);
 
   return (
-    <div className="relative " ref={searchRef}>
+    <div className="relative" ref={searchRef}>
       <div className="relative">
         <svg
           className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"
