@@ -45,7 +45,6 @@ export const MENU_ITEMS = [
         href: "/calculus/integrals",
         description: "Integration techniques and applications",
       },
-
       {
         title: "Applications",
         href: "/calculus/applications",
@@ -76,6 +75,21 @@ export const MENU_ITEMS = [
         title: "Exponentials",
         href: "/algebra/exponentials",
         description: "Exponential and logarithmic functions",
+      },
+      {
+        title: "Complex Numbers",
+        href: "/algebra/complex-numbers",
+        description: "Imaginary numbers, modulus, conjugates, and polar form",
+      },
+      {
+        title: "Permutation and Combination",
+        href: "/algebra/permutation-combination",
+        description: "Counting techniques using permutations and combinations",
+      },
+      {
+        title: "Binomial Theorem",
+        href: "/algebra/binomial-theorem",
+        description: "Expansion and properties of binomial expressions",
       },
     ],
   },
@@ -158,6 +172,22 @@ export const MENU_ITEMS = [
     ],
   },
   {
+    title: "Set Theory",
+    href: "/set-theory",
+    items: [
+      {
+        title: "Set Theory",
+        href: "/set-theory/basics",
+        description: "Sets, subsets, operations, and Venn diagrams",
+      },
+      {
+        title: "Relations and Functions",
+        href: "/set-theory/relations-functions",
+        description: "Types of relations and mapping of functions",
+      },
+    ],
+  },
+  {
     title: "Miscellaneous",
     href: "/miscellaneous",
     items: [
@@ -170,11 +200,6 @@ export const MENU_ITEMS = [
         title: "Logic",
         href: "/miscellaneous/logic",
         description: "Mathematical logic and proof techniques",
-      },
-      {
-        title: "Set Theory",
-        href: "/miscellaneous/set-theory",
-        description: "Sets, relations, and functions",
       },
       {
         title: "Discrete Math",

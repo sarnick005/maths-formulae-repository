@@ -3,15 +3,11 @@ import Link from "next/link";
 export default function Logo() {
   return (
     <div className="flex items-center ml-[-30px]">
-      <Link
-        href="/"
-        className="text-xl font-bold text-black"
-        aria-label="Home"
-      >
+      <Link href="/" className="text-xl font-bold text-black" aria-label="Home">
         <svg
-          width="200"
+          width="240"
           height="60"
-          viewBox="0 0 200 60"
+          viewBox="0 0 240 60"
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* Pi circle */}
@@ -35,83 +31,114 @@ export default function Logo() {
             π
           </text>
 
-          {/* Plus sign */}
-          <g transform="translate(170, 20)">
-            <rect x="5" y="2" width="2" height="8" fill="#333" />
-            <rect x="2" y="5" width="8" height="2" fill="#333" />
+          {/* Repository icon */}
+          <g transform="translate(200, 20)">
+            <rect
+              x="0"
+              y="0"
+              width="12"
+              height="10"
+              fill="none"
+              stroke="#333"
+              strokeWidth="1.5"
+              rx="1"
+            />
+            <line x1="2" y1="3" x2="10" y2="3" stroke="#333" strokeWidth="1" />
+            <line x1="2" y1="5" x2="8" y2="5" stroke="#333" strokeWidth="1" />
+            <line x1="2" y1="7" x2="9" y2="7" stroke="#333" strokeWidth="1" />
           </g>
 
           {/* Text */}
           <text
-            x="50"
+            x="40"
             y="25"
             fontFamily="Arial, sans-serif"
-            fontSize="18"
+            fontSize="16"
             fontWeight="bold"
             fill="#000"
           >
-            Math
+            Maths
           </text>
           <text
-            x="95"
+            x="88"
             y="25"
             fontFamily="Arial, sans-serif"
-            fontSize="14"
-            fontWeight="normal"
-            fill="#666"
-          >
-            is
-          </text>
-          <text
-            x="110"
-            y="25"
-            fontFamily="Arial, sans-serif"
-            fontSize="18"
+            fontSize="16"
             fontWeight="bold"
             fill="#000"
           >
-            fun
+            Formula
+          </text>
+          <text
+            x="155"
+            y="25"
+            fontFamily="Arial, sans-serif"
+            fontSize="16"
+            fontWeight="bold"
+            fill="#000"
+          >
+            Repo
           </text>
 
           {/* Line */}
           <line
-            x1="50"
+            x1="40"
             y1="30"
-            x2="140"
+            x2="190"
             y2="30"
             stroke="#333"
             strokeWidth="1"
             opacity="0.3"
           />
 
-          {/* Equation */}
+          {/* Mathematical formulas */}
           <text
-            x="50"
-            y="45"
+            x="40"
+            y="42"
             fontFamily="Arial, sans-serif"
             fontSize="8"
             fill="#666"
           >
-            2 + 2 = 4
+            E = mc²
+          </text>
+          <text
+            x="75"
+            y="42"
+            fontFamily="Arial, sans-serif"
+            fontSize="8"
+            fill="#666"
+          >
+            a² + b² = c²
+          </text>
+          <text
+            x="125"
+            y="42"
+            fontFamily="Arial, sans-serif"
+            fontSize="8"
+            fill="#666"
+          >
+            ∫f(x)dx
           </text>
 
-          {/* Smile face */}
-          <circle
-            cx="130"
-            cy="40"
-            r="6"
-            fill="none"
-            stroke="#333"
-            strokeWidth="1"
-          />
-          <circle cx="127" cy="38" r="0.5" fill="#333" />
-          <circle cx="133" cy="38" r="0.5" fill="#333" />
-          <path
-            d="M 127 42 Q 130 44 133 42"
-            fill="none"
-            stroke="#333"
-            strokeWidth="1"
-          />
+          {/* Mathematical symbols decoration */}
+          <text
+            x="170"
+            y="45"
+            fontFamily="Arial, sans-serif"
+            fontSize="10"
+            fill="#999"
+          >
+            ∑
+          </text>
+          <text
+            x="180"
+            y="42"
+            fontFamily="Arial, sans-serif"
+            fontSize="8"
+            fill="#999"
+          >
+            ∞
+          </text>
         </svg>
       </Link>
     </div>
