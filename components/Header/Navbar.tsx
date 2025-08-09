@@ -1,12 +1,45 @@
 "use client";
 
 import * as React from "react";
-import { useState } from "react";
+import { useState, ReactNode, MouseEvent } from "react";
 import { Menu } from "lucide-react";
 import { Search } from "./Search";
 import { MENU_ITEMS } from "@/utils/MenuItems";
 
-const Sheet = ({ children, open, onOpenChange }: any) => (
+// Types
+interface SheetProps {
+  children: ReactNode;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+interface SheetTriggerProps {
+  children: ReactNode;
+  asChild?: boolean;
+}
+
+interface SheetContentProps {
+  children: ReactNode;
+  side?: "left" | "right" | "top" | "bottom";
+  className?: string;
+  open: boolean;
+}
+
+interface SheetHeaderProps {
+  children: ReactNode;
+  className?: string;
+}
+
+interface SheetTitleProps {
+  children: ReactNode;
+}
+
+interface SheetDescriptionProps {
+  children: ReactNode;
+}
+
+// Components
+const Sheet = ({ children, open, onOpenChange }: SheetProps) => (
   <div>
     {children}
     {open && (
@@ -18,12 +51,14 @@ const Sheet = ({ children, open, onOpenChange }: any) => (
   </div>
 );
 
-const SheetTrigger = ({ children, asChild }: any) => children;
+const SheetTrigger = ({ children }: SheetTriggerProps) => children;
 
-const SheetContent = ({ children, side, className, open }: any) =>
+const SheetContent = ({ children, side, className, open }: SheetContentProps) =>
   open ? (
     <div
-      className={`fixed top-0 left-0 h-full w-full sm:w-[400px] z-50 flex flex-col p-6 ${className}`}
+      className={`fixed top-0 left-0 h-full w-full sm:w-[400px] z-50 flex flex-col p-6 ${
+        className || ""
+      }`}
       style={{
         background: "#f8f8f8",
         backgroundImage: `
@@ -34,18 +69,18 @@ const SheetContent = ({ children, side, className, open }: any) =>
         backgroundSize: "40px 40px, 40px 40px, 40px 40px",
         borderRight: "4px solid #1a1a1a",
         boxShadow: "4px 0 20px rgba(0,0,0,0.3)",
-        transform: "translateX(0)", // Ensure it's visible
+        transform: "translateX(0)",
       }}
     >
       {children}
     </div>
   ) : null;
 
-const SheetHeader = ({ children, className }: any) => (
-  <div className={`mb-6 ${className}`}>{children}</div>
+const SheetHeader = ({ children, className }: SheetHeaderProps) => (
+  <div className={`mb-6 ${className || ""}`}>{children}</div>
 );
 
-const SheetTitle = ({ children }: any) => (
+const SheetTitle = ({ children }: SheetTitleProps) => (
   <h2
     className="text-3xl font-bold text-black mb-2 relative inline-block"
     style={{
@@ -67,7 +102,7 @@ const SheetTitle = ({ children }: any) => (
   </h2>
 );
 
-const SheetDescription = ({ children }: any) => (
+const SheetDescription = ({ children }: SheetDescriptionProps) => (
   <p
     className="text-gray-700 text-sm"
     style={{
@@ -82,15 +117,8 @@ const SheetDescription = ({ children }: any) => (
 export function MobileNav() {
   const [open, setOpen] = useState(false);
 
-  // Prevent body scroll when menu is open
   React.useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    // Cleanup on unmount
+    document.body.style.overflow = open ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -111,7 +139,6 @@ export function MobileNav() {
           onClick={() => setOpen(true)}
         >
           <Menu className="h-5 w-5 text-black" />
-          {/* Decorative dots */}
           <div className="absolute -top-1 -right-1 w-2 h-2 bg-black rounded-full"></div>
         </button>
       </SheetTrigger>
@@ -121,7 +148,6 @@ export function MobileNav() {
         className="w-full sm:w-[400px] flex flex-col"
         open={open}
       >
-        {/* Close button */}
         <button
           onClick={() => setOpen(false)}
           className="absolute top-4 right-4 p-2 hover:bg-gray-200 rounded-md z-10"
@@ -146,7 +172,6 @@ export function MobileNav() {
           </svg>
         </button>
 
-        {/* Grid overlay */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div
             className="w-full h-full"
@@ -163,8 +188,6 @@ export function MobileNav() {
         <SheetHeader className="flex-shrink-0 relative">
           <SheetTitle>Navigation</SheetTitle>
           <SheetDescription>Browse math topics and concepts</SheetDescription>
-
-          {/* Hand-drawn arrow */}
           <div
             className="absolute top-4 right-12 w-6 h-0 border-b-2 border-black"
             style={{
@@ -200,7 +223,6 @@ export function MobileNav() {
                 transform: `rotate(${menuIndex % 2 === 0 ? 0.5 : -0.5}deg)`,
               }}
             >
-              {/* Corner decorations */}
               <div className="absolute top-1 left-1 w-2 h-2 border-l-2 border-t-2 border-black" />
               <div className="absolute top-1 right-1 w-2 h-2 border-r-2 border-t-2 border-black" />
 
@@ -214,7 +236,6 @@ export function MobileNav() {
                 }}
               >
                 {menu.title}
-                {/* Section number */}
                 <div
                   className="absolute -right-2 -top-2 w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold"
                   style={{
@@ -235,18 +256,17 @@ export function MobileNav() {
                     style={{
                       border: "1px dashed transparent",
                     }}
-                    onMouseEnter={(e) => {
+                    onMouseEnter={(e: MouseEvent<HTMLAnchorElement>) => {
                       e.currentTarget.style.border = "1px dashed #ccc";
                       e.currentTarget.style.background =
                         "rgba(240,240,240,0.5)";
                     }}
-                    onMouseLeave={(e) => {
+                    onMouseLeave={(e: MouseEvent<HTMLAnchorElement>) => {
                       e.currentTarget.style.border = "1px dashed transparent";
                       e.currentTarget.style.background = "transparent";
                     }}
                   >
                     <div className="flex items-start">
-                      {/* Hand-drawn bullet */}
                       <div
                         className="w-2 h-2 bg-black rounded-full mr-3 mt-2 flex-shrink-0 group-hover:scale-125 transition-transform"
                         style={{
@@ -280,7 +300,6 @@ export function MobileNav() {
           ))}
         </div>
 
-        {/* Footer doodle */}
         <div className="text-center py-4 opacity-50">
           <div
             className="inline-block text-xl"
@@ -301,7 +320,6 @@ export function DesktopNav() {
   return (
     <div className="flex items-center gap-6">
       <div className="hidden md:flex items-center relative">
-        {/* Decorative bracket */}
         <div
           className="absolute -left-4 top-1/2 w-3 h-8 border-l-3 border-t-3 border-b-3 border-black"
           style={{
@@ -311,7 +329,6 @@ export function DesktopNav() {
           }}
         />
         <Search />
-        {/* Decorative bracket */}
         <div
           className="absolute -right-4 top-1/2 w-3 h-8 border-r-3 border-t-3 border-b-3 border-black"
           style={{
