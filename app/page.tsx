@@ -4,8 +4,6 @@ import { MENU_ITEMS } from "@/utils/MenuItems";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-// Mock MENU_ITEMS for demonstration
-
 
 interface ITopicCard {
   title: string;
