@@ -188,14 +188,47 @@ export const MENU_ITEMS = [
     ],
   },
   {
+    title: "Number Theory",
+    href: "/number-theory",
+    items: [
+      {
+        title: "Factors & Multiples",
+        href: "/number-theory/factors-multiples",
+        description: "Understanding factors, multiples, and their properties",
+      },
+      {
+        title: "Divisibility & Primes",
+        href: "/number-theory/divisibility-primes",
+        description:
+          "Divisibility rules, prime numbers, and prime factorization",
+      },
+      {
+        title: "GCD & LCM",
+        href: "/number-theory/gcd-lcm",
+        description: "Greatest common divisor and least common multiple",
+      },
+      // {
+      //   title: "Modular Arithmetic",
+      //   href: "/miscellaneous/number-theory/modular",
+      //   description: "Congruences, remainders, and modular equations",
+      // },
+      // {
+      //   title: "Diophantine Equations",
+      //   href: "/miscellaneous/number-theory/diophantine",
+      //   description: "Integer solutions to linear equations",
+      // },
+      // {
+      //   title: "Theorems in Number Theory",
+      //   href: "/miscellaneous/number-theory/theorems",
+      //   description:
+      //     "Fermat’s theorem, Euler’s theorem, and Chinese remainder theorem",
+      // },
+    ],
+  },
+  {
     title: "Miscellaneous",
     href: "/miscellaneous",
     items: [
-      {
-        title: "Number Theory",
-        href: "/miscellaneous/number-theory",
-        description: "Prime numbers, divisibility, and modular arithmetic",
-      },
       {
         title: "Logic",
         href: "/miscellaneous/logic",

@@ -94,12 +94,12 @@ export default function Logo() {
           {/* Mathematical formulas */}
           <text
             x="40"
-            y="42"
+            y="50"
             fontFamily="Arial, sans-serif"
-            fontSize="8"
+            fontSize="10"
             fill="#666"
           >
-            E = mc²
+            e^(iπ) + 1 = 0
           </text>
           <text
             x="75"
