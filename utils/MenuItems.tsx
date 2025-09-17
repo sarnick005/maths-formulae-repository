@@ -84,7 +84,7 @@ export const MENU_ITEMS = [
       {
         title: "Mathematical Induction",
         href: "/algebra/mathematical-induction",
-        description: "Counting techniques using permutations and combinations",
+        description: "Basics, Principle and Steps",
       },
       // {
       //   title: "Permutation and Combination",
