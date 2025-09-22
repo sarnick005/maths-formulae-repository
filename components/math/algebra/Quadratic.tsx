@@ -1,6 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { MathJax } from "better-react-mathjax";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  formatEquation,
+  quadraticRoots,
+} from "@/utils/maths-fn/quadraticRoots";
 
 const CaseLabel = ({ children }: { children: React.ReactNode }) => (
   <span className="bg-gray-100 text-gray-800 rounded-sm px-1 py-0.5 text-sm font-medium">
@@ -9,6 +17,30 @@ const CaseLabel = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function Quadratic() {
+  const [a, setA] = useState<string>("");
+  const [b, setB] = useState<string>("");
+  const [c, setC] = useState<string>("");
+  const [result, setResult] = useState<any>(null);
+  const [calculating, setCalculating] = useState(false);
+
+  const handleCalculate = () => {
+    const A = parseFloat(a);
+    const B = parseFloat(b);
+    const C = parseFloat(c);
+    if (isNaN(A) || isNaN(B) || isNaN(C)) return;
+
+    setCalculating(true);
+
+    setTimeout(() => {
+      const res = quadraticRoots(A, B, C);
+      setResult({ ...res, a: A, b: B, c: C });
+      setA("");
+      setB("");
+      setC("");
+      setCalculating(false);
+    }, 200);
+  };
+
   return (
     <div className="space-y-6">
       <h2 className="text-lg md:text-xl font-semibold font-robotoMono border-b border-border pb-2">
@@ -169,6 +201,73 @@ export default function Quadratic() {
               {"\\[ x = \\frac{-b \\pm i\\cdot\\sqrt{4ac-b^2 }}{2a} \\]"}
             </MathJax>
           </div>
+        </section>
+
+        {/* Section 4 : Calculator */}
+        <section className="p-2 hover:bg-muted/50 rounded transition-colors flex flex-col gap-3">
+          <p className="font-semibold font-robotoMono">
+            <span>4. </span>
+            <span className="underline">Interactive Calculator</span>
+          </p>
+
+          <p className="text-sm text-muted-foreground">
+            Enter coefficients for equation of form{" "}
+            <MathJax>{"\\( ax^2 + bx + c = 0 \\)"}</MathJax>. Example: a=1,
+            b=-3, c=2 → <MathJax>{"\\( x^2 - 3x + 2 = 0 \\)"}</MathJax>
+          </p>
+
+          <div className="flex flex-col md:flex-row gap-3">
+            <Input
+              type="number"
+              placeholder="a"
+              value={a}
+              onChange={(e) => setA(e.target.value)}
+            />
+            <Input
+              type="number"
+              placeholder="b"
+              value={b}
+              onChange={(e) => setB(e.target.value)}
+            />
+            <Input
+              type="number"
+              placeholder="c"
+              value={c}
+              onChange={(e) => setC(e.target.value)}
+            />
+            <Button
+              onClick={handleCalculate}
+              disabled={calculating}
+            >
+              {calculating ? "Calculating..." : "Calculate"}
+            </Button>
+          </div>
+
+          {result && (
+            <Card className="mt-2">
+              <CardContent className="space-y-4 p-4">
+                <p className="font-medium">Your Equation:</p>
+                <MathJax>{`\\( ${formatEquation(
+                  result.a,
+                  result.b,
+                  result.c
+                )} = 0 \\)`}</MathJax>
+
+                <p className="font-medium">Roots:</p>
+                <div className="flex flex-col  gap-2 pl-4">
+                  {result.roots.length === 0 ? (
+                    <p className="text-red-500">No valid roots</p>
+                  ) : result.roots.length === 1 ? (
+                    <MathJax>{`\\( x = ${result.roots[0]} \\)`}</MathJax>
+                  ) : (
+                    result.roots.map((r: any, i: number) => (
+                      <MathJax key={i}>{`\\( x = ${r} \\)`}</MathJax>
+                    ))
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </section>
       </div>
     </div>
