@@ -132,7 +132,7 @@ export default function Derivatives() {
           <div className="text-left w-fit ml-3">
             <MathJax>
               {
-                "\\[ \\text{(xv)} \\frac{d}{dx}(\\text{cosec}\\: x) = \\text{cosec} \\: x \\cdot \\cot x \\]"
+                "\\[ \\text{(xv)} \\frac{d}{dx}(\\text{cosec}\\: x) = - \\text{cosec} \\: x \\cdot \\cot x \\]"
               }
             </MathJax>
           </div>

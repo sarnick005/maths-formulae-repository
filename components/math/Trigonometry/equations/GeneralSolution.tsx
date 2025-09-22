@@ -76,7 +76,7 @@ export default function GeneralSolutions() {
         <div className="p-2 hover:bg-muted/50 rounded transition-colors flex ml-3">
           <MathJax>
             {
-              "(ii) If \\( \\tan\\theta = \\tan\\alpha \\), then \\( \\theta = n\\pi + \\alpha \\quad \\left(-\\frac{\\pi}{2} \\leq \\alpha \\leq \\frac{\\pi}{2}\\right) \\) where n = any integer"
+              "(ii) If \\( \\tan\\theta = \\tan\\alpha \\), then \\( \\theta = n\\pi + \\alpha \\quad \\left(-\\frac{\\pi}{2} \\lt \\alpha \\lt \\frac{\\pi}{2}\\right) \\) where n = any integer"
             }
           </MathJax>
         </div>
