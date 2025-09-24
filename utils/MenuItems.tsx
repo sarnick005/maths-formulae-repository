@@ -76,11 +76,11 @@ export const MENU_ITEMS = [
         href: "/algebra/exponentials",
         description: "Exponential and logarithmic functions",
       },
-      // {
-      //   title: "Complex Numbers",
-      //   href: "/algebra/complex-numbers",
-      //   description: "Imaginary numbers, modulus, conjugates, and polar form",
-      // },
+      {
+        title: "Binomial Expansion",
+        href: "/algebra/binomial-expansion",
+        description: "Binomial Expansion, Application",
+      },
       {
         title: "Mathematical Induction",
         href: "/algebra/mathematical-induction",
