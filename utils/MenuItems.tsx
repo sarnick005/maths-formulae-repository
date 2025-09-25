@@ -230,20 +230,15 @@ export const MENU_ITEMS = [
       // },
     ],
   },
-  // {
-  //   title: "Miscellaneous",
-  //   href: "/miscellaneous",
-  //   items: [
-  //     {
-  //       title: "Logic",
-  //       href: "/miscellaneous/logic",
-  //       description: "Mathematical logic and proof techniques",
-  //     },
-  //     {
-  //       title: "Discrete Math",
-  //       href: "/miscellaneous/discrete",
-  //       description: "Graph theory and discrete structures",
-  //     },
-  //   ],
-  // },
+  {
+    title: "Math is Fun",
+    href: "/math-is-fun",
+    items: [
+      {
+        title: "Monty Hall Problem",
+        href: "/math-is-fun/monty-hall-problem",
+        description: "Conditional Probability",
+      },
+    ],
+  },
 ];
