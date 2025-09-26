@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function BinomialExpansion() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-full overflow-hidden">
       <h2 className="text-lg md:text-xl font-semibold font-robotoMono border-b border-border pb-2">
         Binomial Expansion
       </h2>
