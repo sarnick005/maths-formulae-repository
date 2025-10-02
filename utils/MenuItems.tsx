@@ -240,7 +240,7 @@ export const MENU_ITEMS = [
         description: "Conditional Probability",
       },
       {
-        title: "Monty Carlo Simulation",
+        title: "Monte Carlo Simulation",
         href: "/math-is-fun/monte-carlo-simulation",
         description: "Probability, Randomness",
       },
