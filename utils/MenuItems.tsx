@@ -239,6 +239,11 @@ export const MENU_ITEMS = [
         href: "/math-is-fun/monty-hall-problem",
         description: "Conditional Probability",
       },
+      {
+        title: "Monty Carlo Simulation",
+        href: "/math-is-fun/monte-carlo-simulation",
+        description: "Probability, Randomness",
+      },
     ],
   },
 ];
